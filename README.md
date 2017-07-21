@@ -13,5 +13,3 @@ yarn dev
 # Build for production
 yarn build
 ```
-# webpack-seed
-# webpack-seed
