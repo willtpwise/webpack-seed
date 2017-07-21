@@ -1,12 +1,11 @@
 {
-  "name": "siteminder-webpack",
-  "version": "0.0.1",
-  "description": "A starter webpack kit for vanilla ES6 and SCSS",
+  "name": "webpack-seed",
+  "version": "1.0.0",
+  "description": "Vanilla JS ES6 (ES2015) seed. Bootstrapped with sass and a standard linter. Add what you need!",
   "main": "index.js",
   "repository": {},
-  "author": "William Wise <william.wise@siteminder.com>",
-  "private": true,
-  "license": "MIT",
+  "author": "William Wise <will@williamwise.net>",
+  "license": "WTFPL",
   "engines": {
     "node": ">=6"
   },
