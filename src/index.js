@@ -1,1 +1,1 @@
-import 'bulma/css/bulma.css'
+import 'normalize.css'
