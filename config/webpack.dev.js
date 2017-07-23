@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, '..', 'src'),
@@ -55,12 +56,19 @@ module.exports = {
       loader: 'url-loader',
       query: {
         limit: 10000, // use data url for assets <= 10KB
-        name: 'assets/[name].[hash].[ext]'
+        name: 'static/images/[name].[hash].[ext]'
       },
     }]
   },
 
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: './../static',
+        to: 'static'
+      }
+    ]),
+
     new webpack.HotModuleReplacementPlugin(),
 
     new webpack.NamedModulesPlugin(),

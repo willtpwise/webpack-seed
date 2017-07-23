@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CriticalPlugin = require('webpack-plugin-critical').CriticalPlugin;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const srcDir = path.resolve(__dirname, '..', 'src');
 const distDir = path.resolve(__dirname, '..', 'dist');
@@ -17,10 +17,10 @@ module.exports = {
   ],
 
   output: {
-    filename: 'bundle.[hash].min.js',
+    filename: 'static/bundle.[hash].min.js',
     path: distDir,
     publicPath: '/',
-    sourceMapFilename: 'bundle.map',
+    sourceMapFilename: 'static/bundle.[hash].map',
   },
 
   module: {
@@ -56,12 +56,19 @@ module.exports = {
       loader: 'url-loader',
       query: {
         limit: 10000, // use data url for assets <= 10KB
-        name: 'images/[name].[ext]'
+        name: 'static/[name].[hash].[ext]'
       },
     }]
   },
 
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: './../static',
+        to: 'static'
+      }
+    ]),
+
     new webpack.optimize.UglifyJsPlugin(),
 
     new webpack.NamedModulesPlugin(),
@@ -78,6 +85,6 @@ module.exports = {
       }
     }),
 
-    new ExtractTextPlugin("bundle.[hash].min.css")
+    new ExtractTextPlugin("static/bundle.[hash].min.css")
   ]
 };
