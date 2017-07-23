@@ -1,6 +1,6 @@
-# Webpack ES6 & SCSS Starter
+# Webpack ES6 Seed
 
-Simple webpack start up for `ES2015`, `scss` and a `standard` eslinter. Add what you need!
+Simple webpack boilerplate for `ES2015`, `scss`. Ships with a `standard` JavaScript linter. Add what you need!
 
 ## Installing
 ```
